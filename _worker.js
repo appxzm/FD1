@@ -1,8 +1,8 @@
 export default {
   async fetch(request, env) {
     let url = new URL(request.url);
-    if (url.pathname.startsWith('/')) {
-      url.hostname = 'raw.githubusercontent.com'
+    let proxyDomains = ['raw.githubusercontent.com', 'github.com', 'hostloc.com'];
+    if (proxyDomains.some(domain => url.pathname.startsWith('/') && url.hostname === domain)) {
       let new_request = new Request(url, request);
       return fetch(new_request);
     }
