@@ -1,15 +1,8 @@
 export default {
   async fetch(request, env) {
-    const day1 = 'raw.githubusercontent.com'
-    const day2 = 'github.com'
     let url = new URL(request.url);
     if (url.pathname.startsWith('/')) {
-      let day = new Date()
-      if (day.getDay() % 2) {
-        url.hostname = day1
-      } else {
-        url.hostname = day2
-      }
+      url.hostname = 'raw.githubusercontent.com'
       let new_request = new Request(url, request);
       return fetch(new_request);
     }
