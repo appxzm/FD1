@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const day1 = 'github.com'
     const day2 = 'raw.githubusercontent.com'
-    const day2 = 'hostloc.com'
+    const day3 = 'hostloc.com'
     let url = new URL(request.url);
     if (url.pathname.startsWith('/')) {
       let day = new Date()
